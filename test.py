@@ -7,18 +7,18 @@ class TestCustomer(unittest.TestCase):
 
     def setUp(self):
         # Create some sample data for testing
-        self.customer1 = Customer("John", "Doe")
+        self.customer1 = Customer("Ronnie", "Ochieng")
         self.customer2 = Customer("Jane", "Smith")
         self.restaurant = Restaurant("Sample Restaurant")
 
     def test_properties(self):
-        self.assertEqual(self.customer1.given_name, "John")
-        self.assertEqual(self.customer1.family_name, "Doe")
-        self.assertEqual(self.customer1.full_name(), "John Doe")
+        self.assertEqual(self.customer1.given_name, "Ronnie")
+        self.assertEqual(self.customer1.family_name, "Ochieng")
+        self.assertEqual(self.customer1.full_name(), "Ronnie Ochieng")
 
     def test_class_methods(self):
         self.assertEqual(Customer.all(), [self.customer1, self.customer2])
-        self.assertEqual(Customer.find_by_name("John Doe"), self.customer1)
+        self.assertEqual(Customer.find_by_name("Ronnie Ochieng"), self.customer1)
         self.assertEqual(Customer.find_all_by_given_name("Jane"), [self.customer2])
 
     def test_review_interaction(self):
@@ -32,7 +32,7 @@ class TestRestaurant(unittest.TestCase):
         # Create some sample data for testing
         self.restaurant1 = Restaurant("Restaurant A")
         self.restaurant2 = Restaurant("Restaurant B")
-        self.customer = Customer("John", "Doe")
+        self.customer = Customer("Ronnie", "Ochieng")
 
     def test_properties(self):
         self.assertEqual(self.restaurant1.name, "Restaurant A")
@@ -49,7 +49,7 @@ class TestReview(unittest.TestCase):
 
     def setUp(self):
         # Create some sample data for testing
-        self.customer = Customer("John", "Doe")
+        self.customer = Customer("Ronnie", "Ochieng")
         self.restaurant = Restaurant("Sample Restaurant")
         self.review = Review(self.customer, self.restaurant, 4)
 
